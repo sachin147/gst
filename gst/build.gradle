@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'org.springframework.boot' version '2.2.5.RELEASE'
+}
+
+group 'com.technogise'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+springBoot {
+    mainClassName = 'com.technogise.Application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+    implementation("org.apache.commons:commons-lang3:${apacheCommonsVersion}")
+
+    testImplementation("org.codehaus.groovy:groovy-all:${groovyVersion}")
+    testImplementation("org.spockframework:spock-core:${spockVersion}")
+    testImplementation("org.spockframework:spock-spring:${spockVersion}")
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+    testImplementation("cglib:cglib-nodep:${cgLibVersion}")
+}
